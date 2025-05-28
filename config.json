@@ -1,5 +1,5 @@
 {
-    "TELEGRAM_BOT_TOKEN": "8150270068:AAFuwMwEmlRoM34W96wUA2w0wIoWI6R2Lug",
+    "TELEGRAM_BOT_TOKEN": "8150270068:AAEudhKgzLPjKpyDrRc6i9L3aOSzcCLi0PE",
     "BANNED_WORDS_FILE": "palavras_banidas.txt",
     "LEARNED_WORDS_FILE": "palavras_aprendidas.json",
     "DATABASE_NAME": "bot_learning.db",
