@@ -465,7 +465,8 @@ class LearningAntiCasinoBot:
                 self.update_bot_overall_stats(violations_prevented=1)
                 # Record violation in the database, now including group info
                 self.record_violation(user.id, user.username or user.first_name,
-                                    text_to_check, detected_terms, chat.id, chat.title)
+                                    text_to_check, detected_terms)
+
                 # Update group stats for violations
                 self.update_group_stats(chat.id, chat.title, violations=1)
 
