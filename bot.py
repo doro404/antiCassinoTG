@@ -478,17 +478,21 @@ class LearningAntiCasinoBot:
 
         except Exception as e:
             logger.error(f"Erro ao verificar mensagem: {e}")
-    def update_group_stats(self, chat_id: int, chat_title: str, violations: int = 0):
+    def update_group_stats(self, group_id: int, group_name: str, violations: int = 0, bans: int = 0):
         """Atualiza estatísticas do grupo no banco de dados."""
+        now = datetime.now().isoformat()
         cursor = self.conn.cursor()
         cursor.execute("""
-            INSERT INTO group_stats (chat_id, chat_title, violations)
-            VALUES (?, ?, ?)
-            ON CONFLICT(chat_id) DO UPDATE SET 
-                violations = violations + excluded.violations,
-                chat_title = excluded.chat_title
-        """, (chat_id, chat_title, violations))
+            INSERT INTO group_stats (group_id, group_name, total_violations, total_bans, last_updated)
+            VALUES (?, ?, ?, ?, ?)
+            ON CONFLICT(group_id) DO UPDATE SET
+                group_name = excluded.group_name,
+                total_violations = group_stats.total_violations + excluded.total_violations,
+                total_bans = group_stats.total_bans + excluded.total_bans,
+                last_updated = excluded.last_updated
+        """, (group_id, group_name, violations, bans, now))
         self.conn.commit()
+
     def analyze_message_advanced(self, text: str) -> Tuple[bool, List[str]]:
         """Análise avançada de mensagem com detecção de padrões"""
         if not text:
