@@ -1,0 +1,14 @@
+{
+    "TELEGRAM_BOT_TOKEN": "8150270068:AAFoJ-4gJVZUtJFrTy769zaaO6QhZdTo63M",
+    "BANNED_WORDS_FILE": "palavras_banidas.txt",
+    "LEARNED_WORDS_FILE": "palavras_aprendidas.json",
+    "DATABASE_NAME": "bot_learning.db",
+    "ADMIN_IDS": [6423539592],       
+    "LEARNING_SETTINGS": {
+      "MIN_PATTERN_FREQUENCY": 3,
+      "SIMILARITY_THRESHOLD": 0.8,
+      "LEARNING_WINDOW_HOURS": 24,
+      "AUTO_APPROVE_CONFIDENCE": 0.9,
+      "AUTO_APPROVE_FREQUENCY": 10
+    }
+  }
